@@ -24,7 +24,7 @@
                 <h3 class="text-bold text-center mb-4">APP INVENTORI</h3>
                 <form action="#" method="post">
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="Email">
+                        <input type="text" class="form-control" placeholder="Email" value="admin">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -32,14 +32,15 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Password">
+                        <input type="password" class="form-control" placeholder="Password" value="password">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+                    <a href="<?= base_url('app/dashboard') ?>" class="btn btn-primary btn-block">Sign in</a>
+                    <!-- <button type="submit" class="btn btn-primary btn-block">Sign In</button> -->
                 </form>
                 <div class="mt-3">
                     <a href="#">Lupa Password ?</a>
