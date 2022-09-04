@@ -64,6 +64,24 @@
             "autoWidth": false,
             "responsive": true,
         });
+        $('#tableDataAkun').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
+        $('#tableDataAkunPending').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
     });
 </script>
 </body>

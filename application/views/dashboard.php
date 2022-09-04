@@ -29,7 +29,7 @@
                             <p>Barang Masuk</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="ion ion-ios-box"></i>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                             <p>Barang Keluar</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="ion ion-ios-box"></i>
                         </div>
                     </div>
                 </div>
@@ -53,7 +53,7 @@
                             <p>Total Barang Fisik</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-bag"></i>
+                            <i class="ion ion-ios-box"></i>
                         </div>
                     </div>
                 </div>
@@ -61,17 +61,17 @@
             <div class="row">
                 <div class="col-md-8 col-6">
                     <div class="jumbotron">
-                        <h1 class="text-bold">Selamat Datang</h1>
+                        <h1 class="text-bold">Selamat Datang <span style="color: red;"><?= $nama_lengkap ?></span></h1>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptas, soluta rerum! Quasi explicabo dolorem nihil, enim iusto commodi quaerat vitae nobis eveniet quo velit hic ratione tempore quis vel veritatis?</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-6">
                     <div class="jumbotron text-center text-bold">
-                        <span id="jam" style="font-size: 85px;"></span>
+                        <span id="jam" style="font-size: 65px;"></span>
                         <span id="pemisah" style="font-size: 80px;">:</span>
-                        <span id="menit" style="font-size: 80px;"></span>
+                        <span id="menit" style="font-size: 65px;"></span>
                         <span id="pemisah" style="font-size: 80px;">:</span>
-                        <span id="detik" style="font-size: 80px;"> </span>
+                        <span id="detik" style="font-size: 65px;"> </span>
                     </div>
                 </div>
             </div>
@@ -90,4 +90,6 @@
         document.getElementById("menit").innerHTML = waktu.getMinutes();
         document.getElementById("detik").innerHTML = waktu.getSeconds();
     }
+
+    <?= $this->session->flashdata('message') ?>
 </script>

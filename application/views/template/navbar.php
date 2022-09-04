@@ -30,7 +30,7 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="btn btn-danger btn-md text-bold" href="#">Logout</a>
+            <a class="btn btn-danger btn-md text-bold" href="<?= base_url('login/logout') ?>">Logout</a>
         </li>
     </ul>
 </nav>

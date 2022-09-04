@@ -56,9 +56,10 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <div class="modal-title">
-                    <h5>Tambah suplier</h5>
-                </div>
+                <h5 class="modal-title">Tambah Suplier</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fas fa-times-circle"></i>
+                </button>
             </div>
             <div class="modal-body">
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem non, nostrum quasi minima, repudiandae maxime consequuntur pariatur repellendus doloremque commodi harum libero laborum iste odit suscipit, vitae odio reiciendis architecto?</p>
