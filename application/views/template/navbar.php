@@ -44,7 +44,12 @@
                 </div>
             </div>
             <div class="modal-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur hic ex eaque officia quam quod maiores vero officiis eveniet aspernatur perferendis reiciendis facere commodi dolor delectus, vitae repellendus voluptas esse.</p>
+                <p>Saya adalah seorang backend developer, membuat dan mengembangkan sebuah sistem yang sedang dibutuhkan oleh pengguna untuk digunakan sesuai dengan kebutuhannya</p>
+                <p>Cek github saya untuk aplikasi lainnya <a href="https://github.com/ademaulana12/" target="_blank">https://github.com/ademaulana12/</a></p>
+
+                <p>Dukungan dan donasi</p>
+                <span>Berikan dukunganmu <a href="https://sociabuzz.com/ademaulana0211/tribe" target="_blank">Klik Disini</a></span><br>
+                <span>Berikan donasimu <a href="https://sociabuzz.com/ademaulana0211/donate" target="_blank">Klik Disini</a></span>
             </div>
             <div class="modal-footer">
                 <a href="#" class="btn btn-primary btn-md text-bold">Berikan Usulan</a>

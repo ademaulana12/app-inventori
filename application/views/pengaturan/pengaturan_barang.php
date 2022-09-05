@@ -31,9 +31,9 @@
             </div>
             <div class="card">
                 <div class="card-header bg-primary">
-                    <h5 class="text-bold">Kategori Barang</h5>
+                    <h5 class="text-bold">Tambah Barang</h5>
                 </div>
-                <form action="" method="POST">
+                <form action="<?= base_url('insert/tambah_barang') ?>" method="POST">
                     <div class="card-body">
 
                         <div class="form-group">
@@ -42,7 +42,7 @@
                                     <label for="kodeBarang">Kode Barang</label>
                                 </div>
                                 <div class="col-sm-9 col-6">
-                                    <input type="text" class="form-control" name="kode_barang" id="kode_barang" readonly required>
+                                    <input type="text" class="form-control" name="kode_barang" id="kode_barang" value="<?= $kode_barang ?>" readonly required>
                                 </div>
                             </div>
                         </div>
@@ -53,7 +53,18 @@
                                     <label for="kodeBarang">Nama Barang</label>
                                 </div>
                                 <div class="col-sm-9 col-6">
-                                    <input type="text" class="form-control" name="kode_barang" id="kode_barang" required>
+                                    <input type="text" class="form-control" name="nama_barang" id="nama_barang" placeholder="Masukan nama barang" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3 col-6">
+                                    <label for="merkBarang">Merk Barang</label>
+                                </div>
+                                <div class="col-sm-9 col-6">
+                                    <input type="text" class="form-control" name="merk_barang" id="merek_barang" placeholder="Masukan nama barang" required>
                                 </div>
                             </div>
                         </div>
@@ -64,10 +75,13 @@
                                     <label for="kodeBarang">Kategori Barang</label>
                                 </div>
                                 <div class="col-sm-9 col-6">
-                                    <select name="kategori_barang" id="kategori_barang" class="form-control">
+                                    <select name="kategori_barang" id="kategori_barang" class="form-control" required>
                                         <option>Pilih Kategori Barang</option>
-                                        <option value="" class="text-bold">Kategori 1</option>
-                                        <option value="" class="text-bold">Kategori 2</option>
+                                        <?php
+                                        foreach ($data_kategori as $value) { ?>
+                                            <option value="<?= $value['nama_kategori'] ?>" class="text-bold text-uppercase"><?= $value['nama_kategori'] ?></option>
+                                        <?php }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -76,41 +90,31 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-3 col-6">
-                                    <label for="kodeBarang">Jumlah Barang</label>
+                                    <label for="kondisiBarang">Kondisi Barang</label>
                                 </div>
                                 <div class="col-sm-9 col-6">
-                                    <input type="number" class="form-control" name="kode_barang" id="kode_barang" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-3 col-6">
-                                    <label for="satuanBarang">Satuan Barang</label>
-                                </div>
-                                <div class="col-sm-9 col-6">
-                                    <select name="satuan_barang" id="satuan_barang" class="form-control">
-                                        <option>Pilih Satuan Barang</option>
-                                        <option value="" class="text-bold">Pcs</option>
-                                        <option value="" class="text-bold">Pac</option>
-                                        <option value="" class="text-bold">Box/Dus</option>
-                                        <option value="" class="text-bold">Unit</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-sm-3 col-6">
-                                    <label for="kodeBarang">Kondisi Barang</label>
-                                </div>
-                                <div class="col-sm-9 col-6">
-                                    <select name="kondisi_barang" id="kondisi_barang" class="form-control">
+                                    <select name="kondisi_barang" id="kondisi_barang" class="form-control" required>
                                         <option>Pilih Kondisi Barang</option>
-                                        <option value="" class="text-bold">Baru</option>
-                                        <option value="" class="text-bold">Bekas</option>
+                                        <option value="1" class="text-bold">Baru</option>
+                                        <option value="2" class="text-bold">Bekas</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-3 col-6">
+                                    <label for="suplierBarang">Suplier Barang</label>
+                                </div>
+                                <div class="col-sm-9 col-6">
+                                    <select name="suplier_barang" id="suplier_barang" class="form-control" required>
+                                        <option>Pilih Kondisi Barang</option>
+                                        <?php
+                                        foreach ($data_suplier as $value) { ?>
+                                            <option value="<?= $value['nama_suplier'] ?>" class="text-bold text-uppercase"><?= $value['nama_suplier'] ?></option>
+                                        <?php }
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -132,14 +136,65 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header bg-primary">
-                <h5 class="modal-title">Modal Data Kategori</h5>
+                <h5 class="modal-title">Data Kategori</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <i class="fas fa-times-circle"></i>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio ea cum laudantium reprehenderit corrupti illo suscipit autem nihil officiis architecto hic, nemo omnis voluptatum aliquam ad non? Tempora, exercitationem! Aspernatur.</p>
+                <form action="<?= base_url('insert/tambah_kategori') ?>" method="post">
+                    <div class="row">
+                        <div class="col-md-5 col-8">
+                            <label for="">ID Kategori</label>
+                        </div>
+                        <div class="col-md-5 col-8">
+                            <label for="">Nama Kategori</label>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-5 col-8">
+                            <input type="text" class="form-control " name="id_kategori" id="id_kategori" value="<?= $id_kategori ?>" readonly require>
+                        </div>
+                        <div class="col-md-5 col-8">
+                            <input type="text" class="form-control" name="nama_kategori" id="nama_kategori" placeholder="Masukan nama kategori" require>
+                        </div>
+                        <div class="col-md-2 col-8">
+                            <button type="submit" class="btn btn-primary btn-md btn-block mb-3">Tambah</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="card shadow">
+                    <div class="card-body">
+                        <table class="table table-responsive-sm table-hover table-striped" id="tableDataKategori">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Id Kategori</th>
+                                    <th>Nama Kategori</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $no = 1;
+                                foreach ($data_kategori as $value) { ?>
+                                    <tr>
+                                        <td><?= $no++ ?></td>
+                                        <td><?= $value['id_kategori'] ?></td>
+                                        <td class="text-uppercase"><?= $value['nama_kategori'] ?></td>
+                                    </tr>
+                                <?php }
+                                ?>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Error Message -->
+<script>
+    <?= $this->session->flashdata('message') ?>
+</script>

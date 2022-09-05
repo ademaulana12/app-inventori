@@ -25,7 +25,8 @@
             <div class="small-box shadow rounded bg-white">
                 <div class="inner">
                     <div class="btn-group" role="group">
-                        <button class="btn btn-primary btn-md rounded"><i class="fas fa-print"></i> Cetak Laporan</button>
+                        <button type="submit" class="btn btn-primary btn-md rounded mr-2"><i class="fas fa-print"></i> Cetak Laporan</button>
+                        <button type="submit" class="btn btn-success btn-md rounded"><i class="fas fa-barcode"></i> Cetak Barcode</button>
                     </div>
                 </div>
             </div>
@@ -37,11 +38,31 @@
                             <tr>
                                 <th>No</th>
                                 <th>Kode Barang</th>
+                                <th>Barcode Barang</th>
                                 <th>Nama Barang</th>
-                                <th>Jumlah Barang</th>
+                                <th>Merk Barang</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            <?php
+                            $no = 1;
+                            foreach ($data_barang as $value) { ?>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td>
+                                        <?= $value['kode_barang'] ?><br>
+                                        <a href="#" class="badge badge-secondary" data-toggle="modal" data-target="#modalBarcodeBarang<?= $value['kode_barang'] ?>">
+                                            <i class="fas fa-barcode"></i>
+                                            Get Barcode
+                                        </a>
+                                    </td>
+                                    <td><?= $value['barcode_barang'] ?></td>
+                                    <td><?= $value['nama_barang'] ?></td>
+                                    <td><?= $value['merk_barang'] ?></td>
+                                </tr>
+                            <?php }
+                            ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
@@ -49,3 +70,25 @@
     </section>
     <!-- /.content -->
 </div>
+
+<?php
+foreach ($data_barang as $value) { ?>
+    <div class="modal fade" id="modalBarcodeBarang<?= $value['kode_barang'] ?>" tabindex="-1" aria-hidden="true" aria-labelledby="modalBarcode">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <h5 class="modal-title">Barcode</h5>
+                </div>
+                <div class="modal-body">
+                    <?php
+                    $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                    echo $generator->getBarcode($value['kode_barang'], $generator::TYPE_CODE_128);
+                    echo $value['kode_barang'];
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php }
+
+?>

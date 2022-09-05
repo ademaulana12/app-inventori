@@ -82,6 +82,15 @@
             "autoWidth": false,
             "responsive": true,
         });
+        $('#tableDataKategori').DataTable({
+            "paging": true,
+            "lengthChange": false,
+            "searching": true,
+            "ordering": true,
+            "info": true,
+            "autoWidth": false,
+            "responsive": true,
+        });
     });
 </script>
 </body>
