@@ -26,7 +26,9 @@ class Insert extends CI_Controller
         parent::__construct();
         $this->load->model('Database_model', 'data');
     }
-
+    /**
+     * Pesan error
+     */
     public function message($type, $title)
     {
         $message_alert = "
@@ -45,6 +47,9 @@ class Insert extends CI_Controller
         return $message_alert;
     }
 
+    /**
+     * Function Tambah Akun
+     */
     public function account()
     {
         // Name table database
@@ -73,6 +78,9 @@ class Insert extends CI_Controller
         }
     }
 
+    /**
+     * Function Aktivasi Akun
+     */
     public function move_data($id_user, $nama_lengkap, $username, $password, $hak_akses)
     {
         $table = 'tb_login';
@@ -96,6 +104,82 @@ class Insert extends CI_Controller
         }
     }
 
+    /**
+     * Function tambah kategori
+     */
+    public function tambah_kategori()
+    {
+        $table = 'tb_kategori_barang';
+        $data = [
+            'id_kategori' => htmlspecialchars($this->input->post('id_kategori')),
+            'nama_kategori' => htmlspecialchars($this->input->post('nama_kategori'))
+        ];
+        $insert = $this->data->insert_data($table, $data);
+        if ($insert) {
+            $this->session->set_flashdata('message', $this->message('success', 'Berhasil tambah kategori barang'));
+            redirect('app/pengaturan_barang');
+        } else {
+            $this->session->set_flashdata('message', $this->message('error', 'Gagal tambah kategori barang'));
+            redirect('app/pengaturan_barang');
+        }
+    }
+
+    /**
+     * Function tambah kategori
+     */
+    public function tambah_barang()
+    {
+        $table = 'tb_barang';
+
+        $data = [
+            'kode_barang' => htmlspecialchars($this->input->post('kode_barang')),
+            'nama_barang' => htmlspecialchars($this->input->post('nama_barang')),
+            'merk_barang' => htmlspecialchars($this->input->post('merk_barang')),
+            'kategori_barang' => htmlspecialchars($this->input->post('kategori_barang')),
+            'kondisi_barang' => htmlspecialchars($this->input->post('kondisi_barang')),
+            'suplier_barang' => htmlspecialchars($this->input->post('suplier_barang')),
+        ];
+        $insert = $this->data->insert_data($table, $data);
+        if ($insert) {
+            $this->session->set_flashdata('message', $this->message('success', 'Berhasil tambah kategori barang'));
+            redirect('app/pengaturan_barang');
+        } else {
+            $this->session->set_flashdata('message', $this->message('error', 'Gagal tambah kategori barang'));
+            redirect('app/pengaturan_barang');
+        }
+    }
+    public function test_barcode_generator($barcode)
+    {
+        // $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+        echo $generator->getBarcode($barcode, $generator::TYPE_CODE_128);
+    }
+
+    /**
+     * Function tambah kategori
+     */
+    public function tambah_suplier()
+    {
+        $table = 'tb_suplier';
+        $data = [
+            'id_suplier' => htmlspecialchars($this->input->post('id_suplier')),
+            'nama_suplier' => htmlspecialchars($this->input->post('nama_suplier')),
+            'nomor_telepon' => htmlspecialchars($this->input->post('nomor_telepon')),
+            'alamat_suplier' => htmlspecialchars($this->input->post('alamat_suplier'))
+        ];
+        $insert = $this->data->insert_data($table, $data);
+        if ($insert) {
+            $this->session->set_flashdata('message', $this->message('success', 'Berhasil menambahkan suplier'));
+            redirect('app/suplier');
+        } else {
+            $this->session->set_flashdata('message', $this->message('error', 'Gagal menambahkan suplier'));
+            redirect('app/suplier');
+        }
+    }
+
+    /**
+     * Function Delete
+     */
     public function delete($id_user)
     {
         $this->db->where(['id_user' => $id_user]);

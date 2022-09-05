@@ -28,13 +28,14 @@ class App extends CI_Controller
 
   public function semua_barang()
   {
+    $data['data_barang'] = $this->data->show_all_data('tb_barang')->result_array();
 
     // Load Page
-    $this->load->view('template/header');
-    $this->load->view('template/navbar');
-    $this->load->view('template/sidebar');
-    $this->load->view('barang/semua_barang');
-    $this->load->view('template/footer');
+    $this->load->view('template/header', $data);
+    $this->load->view('template/navbar', $data);
+    $this->load->view('template/sidebar', $data);
+    $this->load->view('barang/semua_barang', $data);
+    $this->load->view('template/footer', $data);
   }
 
   public function barang_masuk()
@@ -59,12 +60,14 @@ class App extends CI_Controller
 
   public function suplier()
   {
+    $data['id_suplier'] = 'SUP-' . rand(111111111, 999999999);
+    $data['data_suplier'] = $this->data->show_all_data('tb_suplier')->result_array();
     // Load Page
-    $this->load->view('template/header');
-    $this->load->view('template/navbar');
-    $this->load->view('template/sidebar');
-    $this->load->view('suplier/data_suplier');
-    $this->load->view('template/footer');
+    $this->load->view('template/header', $data);
+    $this->load->view('template/navbar', $data);
+    $this->load->view('template/sidebar', $data);
+    $this->load->view('suplier/data_suplier', $data);
+    $this->load->view('template/footer', $data);
   }
 
   public function pengaturan_akun()
@@ -83,12 +86,18 @@ class App extends CI_Controller
 
   public function pengaturan_barang()
   {
+    $data['kode_barang'] = 'BRG-' . rand(111111111, 999999999);
+    $data['id_kategori'] = rand(111111, 999999);
+    $data['data_kategori'] = $this->data->show_all_data('tb_kategori_barang')->result_array();
+    $data['data_suplier'] = $this->data->show_all_data('tb_suplier')->result_array();
+
+
     // Load Page
-    $this->load->view('template/header');
-    $this->load->view('template/navbar');
-    $this->load->view('template/sidebar');
-    $this->load->view('pengaturan/pengaturan_barang');
-    $this->load->view('template/footer');
+    $this->load->view('template/header', $data);
+    $this->load->view('template/navbar', $data);
+    $this->load->view('template/sidebar', $data);
+    $this->load->view('pengaturan/pengaturan_barang', $data);
+    $this->load->view('template/footer', $data);
   }
 }
 
