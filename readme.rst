@@ -20,7 +20,7 @@ Server Requirements
 PHP version 7.* belum support untuk PHP versi 8.*.
 
 Jika anda menggunakan PHP versi 8 pada web server anda disarankan untuk melakukan 
-instalasi versi PHP 7.* atau yang terbaru
+instalasi versi PHP 7.*
 
 ************
 Installation
