@@ -14,6 +14,13 @@ Aplikasi ini masih dalam tahap pengembangan belum dapat di uji coba oleh pihak l
 harap menunggu kabar release dari tim kami 
 
 *******************
+Demo App
+*******************
+
+https://user-images.githubusercontent.com/22232679/198925691-07e9214d-347d-4e7c-be28-ffbe808b157e.PNG
+https://user-images.githubusercontent.com/22232679/198925821-3e580dbf-b632-4c5d-96e9-9a7f9674c3fe.PNG
+
+*******************
 Server Requirements
 *******************
 
